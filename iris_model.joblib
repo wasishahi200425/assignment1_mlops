@@ -1,0 +1,20 @@
+setup:
+    python3 -m venv ~/.my_project
+
+install:
+    pip install --upgrade pip &&\
+        pip install -r requirements.txt
+
+test:
+    echo "No tests for now"
+
+run:
+    python app/server.py
+
+docker-build:
+    docker build -t my_project .
+
+docker-run:
+    docker run -p 4000:5000 my_project
+
+all: install lint test
